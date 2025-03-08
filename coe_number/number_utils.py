@@ -1,9 +1,12 @@
-def caesar_cipher(s, k):
-    def shift_char(c):
-        if 'a' <= c <= 'z':
-            return chr((ord(c) - ord('a') + k) % 26 + ord('a'))
-        if 'A' <= c <= 'Z':
-            return chr((ord(c) - ord('A') + k) % 26 + ord('A'))
-        return c
+from itertools import combinations
 
-    return "".join(shift_char(c) for c in s)
+def two_characters(s):
+    unique_chars = set(s)
+    max_length = 0
+
+    for a, b in combinations(unique_chars, 2):
+        filtered = [c for c in s if c in (a, b)]
+        if all(filtered[i] != filtered[i - 1] for i in range(1, len(filtered))):
+            max_length = max(max_length, len(filtered))
+
+    return max_length
