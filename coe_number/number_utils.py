@@ -1,10 +1,3 @@
-def cat_and_mouse(x, y, z):
-    distance_a = abs(x - z)  # ระยะทางจาก Cat A ไป Mouse C
-    distance_b = abs(y - z)  # ระยะทางจาก Cat B ไป Mouse C
-
-    if distance_a < distance_b:
-        return "Cat A"
-    elif distance_b < distance_a:
-        return "Cat B"
-    else:
-        return "Mouse C"  # ถ้าระยะทางเท่ากัน Mouse หนีได้
+def funny_string(s):
+    ascii_diff = [abs(ord(s[i]) - ord(s[i - 1])) for i in range(1, len(s))]
+    return "Funny" if ascii_diff == ascii_diff[::-1] else "Not Funny"
