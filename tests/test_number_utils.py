@@ -1,22 +1,42 @@
-from coe_number.number_utils import fizzbuzz
+from coe_number.number_utils import staircase
 import unittest
 
-class FizzBuzzTest(unittest.TestCase):
-    def test_give_3_should_return_fizz(self):
-        self.assertEqual(fizzbuzz(3), "Fizz")
+class StaircaseTest(unittest.TestCase):
+    def test_give_2_with_hash_should_be_hh(self):
+        # Arrange
+        n = 2
+        pattern = '#'
+        expected_output = " #\n##"
 
-    def test_give_5_should_return_buzz(self):
-        self.assertEqual(fizzbuzz(5), "Buzz")
+        # Act
+        result = staircase(n, pattern)
 
-    def test_give_15_should_return_fizzbuzz(self):
-        self.assertEqual(fizzbuzz(15), "FizzBuzz")
+        # Assert
+        self.assertEqual(result, expected_output, f"Should be:\n{expected_output}")
 
-    def test_give_7_should_return_7(self):
-        self.assertEqual(fizzbuzz(7), "7")
+    def test_give_4_with_star_should_be_staircase(self):
+        # Arrange
+        n = 4
+        pattern = '*'
+        expected_output = "   *\n  **\n ***\n****"
 
-    def test_give_30_should_return_fizzbuzz(self):
-        self.assertEqual(fizzbuzz(30), "FizzBuzz")
+        # Act
+        result = staircase(n, pattern)
+
+        # Assert
+        self.assertEqual(result, expected_output, f"Should be:\n{expected_output}")
+
+    def test_give_3_with_at_should_be_staircase(self):
+        # Arrange
+        n = 3
+        pattern = '@'
+        expected_output = "  @\n @@\n@@@"
+
+        # Act
+        result = staircase(n, pattern)
+
+        # Assert
+        self.assertEqual(result, expected_output, f"Should be:\n{expected_output}")
 
 if __name__ == '__main__':
     unittest.main()
-
