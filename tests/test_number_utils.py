@@ -1,12 +1,13 @@
 import unittest
-from coe_number.number_utils import alternating_characters
+from coe_number.number_utils import caesar_cipher
 
-class AlternatingCharactersTest(unittest.TestCase):
-    def test_should_return_3(self):
-        self.assertEqual(alternating_characters("AAAA"), 3)
+class CaesarCipherTest(unittest.TestCase):
+    def test_should_shift_abc_by_3(self):
+        self.assertEqual(caesar_cipher("abc", 3), "def")
 
-    def test_should_return_4(self):
-        self.assertEqual(alternating_characters("AAABBB"), 4)
+    def test_should_keep_special_chars(self):
+        self.assertEqual(caesar_cipher("Hello, World!", 5), "Mjqqt, Btwqi!")
 
 if __name__ == '__main__':
     unittest.main()
+
