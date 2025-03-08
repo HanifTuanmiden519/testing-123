@@ -1,12 +1,12 @@
 import unittest
-from coe_number.number_utils import two_characters
+from coe_number.number_utils import grid_challenge
 
-class TwoCharactersTest(unittest.TestCase):
-    def test_should_return_5(self):
-        self.assertEqual(two_characters("beabeefeab"), 5)
+class GridChallengeTest(unittest.TestCase):
+    def test_should_return_yes(self):
+        self.assertEqual(grid_challenge(["ebacd", "fghij", "olmkn", "trpqs", "xywuv"]), "YES")
 
-    def test_should_return_2(self):
-        self.assertEqual(two_characters("abcd"), 2)
+    def test_should_return_no(self):
+        self.assertEqual(grid_challenge(["abc", "lmp", "qrt"]), "NO")
 
 if __name__ == '__main__':
     unittest.main()
