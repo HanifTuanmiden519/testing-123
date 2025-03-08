@@ -1,7 +1,10 @@
-def staircase(n, pattern="#"):
-    if n <= 0:
-        return ""  # กรณี n = 0 หรือค่าลบ ให้ return ค่าว่าง
-    result = []
-    for i in range(1, n + 1):
-        result.append(" " * (n - i) + pattern * i)
-    return "\n".join(result)
+def cat_and_mouse(x, y, z):
+    distance_a = abs(x - z)  # ระยะทางจาก Cat A ไป Mouse C
+    distance_b = abs(y - z)  # ระยะทางจาก Cat B ไป Mouse C
+
+    if distance_a < distance_b:
+        return "Cat A"
+    elif distance_b < distance_a:
+        return "Cat B"
+    else:
+        return "Mouse C"  # ถ้าระยะทางเท่ากัน Mouse หนีได้

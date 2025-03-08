@@ -1,48 +1,21 @@
 import unittest
-from coe_number.number_utils import staircase
+from coe_number.number_utils import cat_and_mouse
 
-class StaircaseTest(unittest.TestCase):
-    def test_give_2_with_hash_should_be_hh(self):
-        n = 2
-        pattern = '#'
-        expected_output = " #\n##"
-        result = staircase(n, pattern)
-        self.assertEqual(result, expected_output)
+class CatAndMouseTest(unittest.TestCase):
+    def test_cat_b_should_win(self):
+        self.assertEqual(cat_and_mouse(2, 5, 4), "Cat B")
 
-    def test_give_4_with_star_should_be_staircase(self):
-        n = 4
-        pattern = '*'
-        expected_output = "   *\n  **\n ***\n****"
-        result = staircase(n, pattern)
-        self.assertEqual(result, expected_output)
+    def test_cat_a_should_win(self):
+        self.assertEqual(cat_and_mouse(1, 5, 2), "Cat A")
 
-    def test_give_3_with_at_should_be_staircase(self):
-        n = 3
-        pattern = '@'
-        expected_output = "  @\n @@\n@@@"
-        result = staircase(n, pattern)
-        self.assertEqual(result, expected_output)
+    def test_mouse_should_escape(self):
+        self.assertEqual(cat_and_mouse(1, 3, 2), "Mouse C")
 
-    def test_give_1_should_return_single_symbol(self):
-        n = 1
-        pattern = '#'
-        expected_output = "#"
-        result = staircase(n, pattern)
-        self.assertEqual(result, expected_output)
+    def test_cat_a_should_win_when_closer(self):
+        self.assertEqual(cat_and_mouse(10, 20, 12), "Cat A")
 
-    def test_give_0_should_return_empty(self):
-        n = 0
-        pattern = '#'
-        expected_output = ""
-        result = staircase(n, pattern)
-        self.assertEqual(result, expected_output)
-
-    def test_give_negative_should_return_empty(self):
-        n = -3
-        pattern = '#'
-        expected_output = ""
-        result = staircase(n, pattern)
-        self.assertEqual(result, expected_output)
+    def test_cat_b_should_win_when_closer(self):
+        self.assertEqual(cat_and_mouse(30, 25, 28), "Cat B")
 
 if __name__ == '__main__':
     unittest.main()
